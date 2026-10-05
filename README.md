@@ -76,8 +76,14 @@ shrink one in Terminal without any extra software:
 sips --cropOffset 250 1145 -c 2598 2078 original.jpg --out files/profile.jpg && sips -z 750 600 files/profile.jpg && sips -s formatOptions 72 files/profile.jpg --out files/profile.jpg
 ```
 
-The vertical rule between the text and the photo is `--bar` in `style.css`.
-Delete the `border-right` line in `.masthead-text` to remove it.
+The divider between the text and the photo is the inline `<svg class="ridge">`
+in `index.html` — a line-drawn mountain range that tiles down the full height
+of the masthead, so the peaks keep their shape however tall it gets. Its color
+follows `--bar`. To reshape the peaks, edit the small x values in the three
+`<path>` points; to remove it, delete the whole `<svg>`.
+
+The highlighted job-title line uses `--highlight` for the block behind it. Both
+that block and the mountains are suppressed when printing.
 
 ## Adding a paper
 

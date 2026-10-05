@@ -32,7 +32,7 @@
       <h1>Robert Walatka</h1>
       <p class="role">
         <strong>The University of Chicago Booth School of Business</strong><br>
-        PhD Student, [Department]
+        <span class="role-title">PhD Student, [Department]</span>
       </p>
 
       <!-- Address is assembled by the script at the bottom of this file. To
@@ -42,6 +42,39 @@
         <noscript>robert.walatka <em>at</em> chicagobooth <em>dot</em> edu</noscript>
       </p>
     </div>
+
+    <!-- Decorative divider: a line-drawn mountain range. The <pattern> tiles
+         down the full height of the masthead, so the peaks keep their shape
+         no matter how tall the name block or photo gets. Edit the path's
+         points to reshape the peaks; stroke follows --bar via currentColor. -->
+    <svg class="ridge" aria-hidden="true" focusable="false">
+      <defs>
+        <!-- A line-drawn mountain range. The straight spine on the right is the
+             "ground"; three asymmetric peaks of different sizes rise off it to
+             the left, each with a ridge line falling from the summit. The tile
+             repeats every 132px and all peaks sit inside it, so the joins fall
+             on the plain spine and stay invisible at any height.
+             To make the range sharper, lower the peak x values (7, 19, 11). -->
+        <pattern id="ridge-tile" width="40" height="132" patternUnits="userSpaceOnUse">
+          <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round">
+            <!-- ground -->
+            <path d="M36 0 L36 132" stroke-width="1.4" opacity=".45"/>
+            <!-- peaks -->
+            <g stroke-width="1.6">
+              <path d="M36 8   L7 26   L36 54"/>
+              <path d="M36 64  L19 78  L36 94"/>
+              <path d="M36 100 L11 114 L36 128"/>
+            </g>
+            <!-- ridge lines off the two larger summits -->
+            <g stroke-width="1.1" opacity=".5">
+              <path d="M7 26 L14 34 L11 40"/>
+              <path d="M11 114 L17 120"/>
+            </g>
+          </g>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#ridge-tile)"/>
+    </svg>
 
     <!-- To swap this out: replace files/profile.jpg with a 4:5 portrait crop
          and update width/height to match. -->

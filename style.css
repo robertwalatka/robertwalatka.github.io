@@ -9,7 +9,8 @@
   --rule:      #3a3c40;   /* hairline dividers */
   --bg:        #212326;   /* soft dark grey page background */
   --accent:    #ffce1c;   /* links + active tab */
-  --bar:       #f2f0ed;   /* the vertical rule beside your photo */
+  --bar:       #f2f0ed;   /* the mountain divider beside your photo */
+  --highlight: #16181b;   /* near-black block behind the job title */
 
   /* Lato is loaded from Google Fonts in index.html — it isn't installed on
      any OS by default. The fallbacks cover the moment before it arrives, and
@@ -81,6 +82,19 @@ h1 {
 .role strong {
   font-weight: 700;
   color: var(--text);
+}
+
+/* The job-title line, highlighted against a near-black block.
+   box-decoration-break keeps the padding correct if it wraps to two lines. */
+.role-title {
+  display: inline-block;
+  margin-top: .3rem;
+  padding: .12em .45em;
+  background: var(--highlight);
+  color: #fff;
+  border-radius: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .links a { overflow-wrap: anywhere; }
@@ -173,21 +187,28 @@ p { margin: 0 0 1rem; }
 
 .masthead {
   display: flex;
-  gap: 1.75rem;
+  gap: 1.1rem;
   /* align-items defaults to stretch, so the rule spans the full row height
      whether the text or the photo is taller. */
 }
 
 .masthead-text {
   flex: 1 1 auto;
-  padding-right: 1.75rem;
-  border-right: 3px solid var(--bar);
 }
 .masthead-text > :last-child { margin-bottom: 0; }
 
+/* The mountain divider. No viewBox — it takes its size from here and the
+   pattern inside tiles in CSS pixels, so the peaks never stretch. */
+.ridge {
+  flex: 0 0 2.5rem;
+  width: 2.5rem;
+  align-self: stretch;
+  color: var(--bar);
+}
+
 .bio-photo {
-  flex: 0 0 8.5rem;
-  width: 8.5rem;
+  flex: 0 0 10.5rem;
+  width: 10.5rem;
   height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
@@ -310,8 +331,8 @@ footer p { margin: 0; }
   h1 { font-size: 1.75rem; }
   .tabs a { margin-right: 1.25rem; }
   .masthead { flex-direction: column; gap: 1.25rem; }
-  .masthead-text { padding-right: 0; border-right: 0; }
-  .bio-photo { flex: 0 0 auto; width: 7.5rem; }
+  .ridge { display: none; }
+  .bio-photo { flex: 0 0 auto; width: 9rem; }
   .contact, .cv-list { grid-template-columns: 1fr; gap: 0 0; }
   .contact dd, .cv-list dd { margin-bottom: .75rem; }
 }
@@ -324,6 +345,8 @@ footer p { margin: 0; }
     --text: #000; --muted: #444; --bg: #fff;
     --accent: #000; --bar: #000; --rule: #ccc;
   }
+  /* No ink slab on paper — show the title as plain text. */
+  .role-title { background: none; color: #000; padding: 0; }
   .tabs, .skip, summary { display: none; }
   a { text-decoration: none; }
   .js .panel { display: block; }   /* print all four tabs, not just the open one */
