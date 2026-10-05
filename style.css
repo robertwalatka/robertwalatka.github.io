@@ -9,6 +9,7 @@
   --rule:      #e2e2e2;
   --bg:        #fdfdfc;
   --accent:    #8c1515;   /* link color — swap for your school's */
+  --bar:       #111111;   /* the vertical rule beside your photo */
   --max-width: 44rem;
 }
 
@@ -19,6 +20,7 @@
     --rule:   #333130;
     --bg:     #16161a;
     --accent: #e8927c;
+    --bar:    #e8e6e3;
   }
 }
 
@@ -79,12 +81,7 @@ h1 {
 }
 
 .links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .4rem 1.1rem;
   margin: 0;
-  padding: 0;
-  list-style: none;
   font-family: system-ui, -apple-system, sans-serif;
   font-size: .9375rem;
 }
@@ -148,6 +145,29 @@ p { margin: 0 0 1rem; }
   padding-left: 1.25rem;
 }
 .interests li { margin-bottom: .25rem; }
+
+/* ----- overview: photo, vertical rule, text ----- */
+
+.bio {
+  display: flex;
+  gap: 1.75rem;
+  /* align-items defaults to stretch, so the rule spans the full row height
+     whether the photo or the text is taller. */
+}
+
+.bio-photo {
+  flex: 0 0 11rem;
+  width: 11rem;
+  height: auto;
+  align-self: flex-start;
+  border-radius: 2px;
+}
+
+.bio-text {
+  padding-left: 1.75rem;
+  border-left: 3px solid var(--bar);
+}
+.bio-text > :last-child { margin-bottom: 0; }
 
 /* ----- papers ----- */
 
@@ -263,6 +283,9 @@ footer p { margin: 0; }
   body { padding: 2.25rem 1.25rem 3rem; }
   h1 { font-size: 1.75rem; }
   .tabs a { margin-right: 1.25rem; }
+  .bio { flex-direction: column; gap: 1.25rem; }
+  .bio-photo { flex: 0 0 auto; width: 9rem; }
+  .bio-text { padding-left: 0; border-left: 0; }
   .contact, .cv-list { grid-template-columns: 1fr; gap: 0 0; }
   .contact dd, .cv-list dd { margin-bottom: .75rem; }
 }

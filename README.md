@@ -34,6 +34,16 @@ To add a fifth, add an `<a href="#newid">` link and a matching
 If a visitor has JavaScript off, all four sections simply stack down the page —
 nothing is lost. Printing the page does the same, so Cmd-P gives you everything.
 
+## Adding your photo
+
+Drop a portrait-crop image into `files/` and point the Overview tab's `<img>` at
+it — change `src="files/profile.svg"` to `src="files/profile.jpg"`. The shipped
+`profile.svg` is just a grey placeholder; delete it once yours is in.
+
+The black vertical rule beside the photo is `--bar` in `style.css`. It's
+near-black in light mode and near-white in dark mode so it stays visible either
+way — if you want it black always, set both `--bar` values to `#111111`.
+
 ## Adding a paper
 
 Copy one whole `<li>` ... `</li>` block inside `<ol class="papers">` and edit the
