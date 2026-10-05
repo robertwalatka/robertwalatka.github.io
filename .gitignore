@@ -1,3 +1,7 @@
 .DS_Store
 ._*
 Thumbs.db
+
+# 6.7 MB camera original — the web-sized crop lives in files/profile.jpg.
+# Keep a copy somewhere outside the repo as your master.
+Profile_Overview.jpg

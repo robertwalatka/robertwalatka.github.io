@@ -11,10 +11,11 @@
   --accent:    #e8927c;   /* link color — swap for your own */
   --bar:       #f2f0ed;   /* the vertical rule beside your photo */
 
-  /* Futura ships with macOS and iOS. Elsewhere these fall back, in order, to
-     the closest geometric sans the system is likely to have. */
-  --sans: Futura, "Futura PT", "Avenir Next", "Century Gothic", Jost,
-          "Trebuchet MS", system-ui, -apple-system, sans-serif;
+  /* Lato is loaded from Google Fonts in index.html — it isn't installed on
+     any OS by default. The fallbacks cover the moment before it arrives, and
+     visitors who block webfonts. */
+  --sans: Lato, "Helvetica Neue", Helvetica, Arial, system-ui,
+          -apple-system, sans-serif;
   --max-width: 44rem;
 }
 
@@ -28,8 +29,7 @@ body {
   max-width: var(--max-width);
   background: var(--bg);
   color: var(--text);
-  font: 400 1.0625rem/1.72 var(--sans);
-  letter-spacing: .005em;
+  font: 400 1.0625rem/1.68 var(--sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -66,8 +66,8 @@ a:focus-visible {
 h1 {
   margin: 0;
   font-size: 2.125rem;
-  font-weight: 500;
-  letter-spacing: .005em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .role {
@@ -75,6 +75,8 @@ h1 {
   color: var(--muted);
   line-height: 1.5;
 }
+
+.links a { overflow-wrap: anywhere; }
 
 .links {
   margin: 0;
@@ -123,7 +125,7 @@ h2 {
   font-size: 1.0625rem;
   font-weight: 600;
   font-family: var(--sans);
-  letter-spacing: .1em;
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -155,6 +157,8 @@ p { margin: 0 0 1rem; }
   flex: 0 0 11rem;
   width: 11rem;
   height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
   align-self: flex-start;
   border-radius: 2px;
 }
@@ -164,8 +168,6 @@ p { margin: 0 0 1rem; }
   border-left: 3px solid var(--bar);
 }
 .bio-text > :last-child { margin-bottom: 0; }
-
-em, i { font-style: italic; letter-spacing: .01em; }
 
 /* ----- papers ----- */
 
