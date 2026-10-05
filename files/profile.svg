@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 225" width="180" height="225" role="img" aria-label="Placeholder portrait">
-  <rect width="180" height="225" fill="#e6e4e0"/>
-  <circle cx="90" cy="86" r="34" fill="#c3bfb8"/>
-  <path d="M26 225c0-39 28-66 64-66s64 27 64 66z" fill="#c3bfb8"/>
-  <text x="90" y="212" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8a857c">your photo here</text>
+  <rect width="180" height="225" fill="#3b3d41"/>
+  <circle cx="90" cy="86" r="34" fill="#4f5257"/>
+  <path d="M26 225c0-39 28-66 64-66s64 27 64 66z" fill="#4f5257"/>
+  <text x="90" y="212" text-anchor="middle" font-family="Futura, Avenir Next, system-ui, sans-serif" font-size="11" fill="#8d9095">your photo here</text>
 </svg>

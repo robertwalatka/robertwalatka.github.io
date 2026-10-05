@@ -34,6 +34,34 @@ To add a fifth, add an `<a href="#newid">` link and a matching
 If a visitor has JavaScript off, all four sections simply stack down the page —
 nothing is lost. Printing the page does the same, so Cmd-P gives you everything.
 
+## Font and colors
+
+The whole site uses one type stack and one palette, both at the top of
+`style.css` in the `:root` block:
+
+- `--sans` is the font stack, led by **Futura**. Futura ships with macOS and
+  iOS, so Mac and iPhone visitors see it. Windows and Android don't have it and
+  will fall back to Avenir Next / Century Gothic / Jost / Trebuchet MS, in that
+  order. If you want Futura's look everywhere, see the note below.
+- `--bg` is the dark grey background, `--text` the off-white text, `--accent`
+  the link color, `--bar` the vertical rule beside your photo.
+
+The site is dark all the time — it no longer follows the visitor's light/dark
+setting. Printing is the one exception: Cmd-P flips to black-on-white so you
+don't get a grey slab, and prints all four tabs.
+
+### Getting Futura on Windows too
+
+Add this line in `index.html` just above the `<link rel="stylesheet">`:
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+```
+
+Jost is a free Futura-alike. It's already in the fallback list, so adding the
+link is all it takes — Mac users still get real Futura, everyone else gets Jost
+instead of Trebuchet. The tradeoff is one request to Google's servers.
+
 ## Adding your photo
 
 Drop a portrait-crop image into `files/` and point the Overview tab's `<img>` at

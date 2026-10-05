@@ -4,24 +4,18 @@
    --------------------------------------------------------------- */
 
 :root {
-  --text:      #1a1a1a;
-  --muted:     #6b6b6b;
-  --rule:      #e2e2e2;
-  --bg:        #fdfdfc;
-  --accent:    #8c1515;   /* link color — swap for your school's */
-  --bar:       #111111;   /* the vertical rule beside your photo */
-  --max-width: 44rem;
-}
+  --text:      #f2f0ed;   /* off-white body text */
+  --muted:     #a9a7a3;   /* secondary text: dates, coauthors, labels */
+  --rule:      #45474b;   /* hairline dividers */
+  --bg:        #2e3033;   /* soft dark grey page background */
+  --accent:    #e8927c;   /* link color — swap for your own */
+  --bar:       #f2f0ed;   /* the vertical rule beside your photo */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text:   #e8e6e3;
-    --muted:  #9a9893;
-    --rule:   #333130;
-    --bg:     #16161a;
-    --accent: #e8927c;
-    --bar:    #e8e6e3;
-  }
+  /* Futura ships with macOS and iOS. Elsewhere these fall back, in order, to
+     the closest geometric sans the system is likely to have. */
+  --sans: Futura, "Futura PT", "Avenir Next", "Century Gothic", Jost,
+          "Trebuchet MS", system-ui, -apple-system, sans-serif;
+  --max-width: 44rem;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -34,8 +28,10 @@ body {
   max-width: var(--max-width);
   background: var(--bg);
   color: var(--text);
-  font: 400 1.0625rem/1.65 ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font: 400 1.0625rem/1.72 var(--sans);
+  letter-spacing: .005em;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ----- links ----- */
@@ -70,8 +66,8 @@ a:focus-visible {
 h1 {
   margin: 0;
   font-size: 2.125rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: 500;
+  letter-spacing: .005em;
 }
 
 .role {
@@ -82,7 +78,7 @@ h1 {
 
 .links {
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--sans);
   font-size: .9375rem;
 }
 
@@ -93,7 +89,7 @@ h1 {
   flex-wrap: wrap;
   margin-top: 2rem;
   border-bottom: 1px solid var(--rule);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--sans);
   font-size: .9375rem;
 }
 
@@ -126,8 +122,8 @@ h2 {
   margin: 0 0 1rem;
   font-size: 1.0625rem;
   font-weight: 600;
-  font-family: system-ui, -apple-system, sans-serif;
-  letter-spacing: .06em;
+  font-family: var(--sans);
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -141,7 +137,7 @@ h3 {
 p { margin: 0 0 1rem; }
 
 .interests {
-  margin: 0;
+  margin: 0 0 1rem;
   padding-left: 1.25rem;
 }
 .interests li { margin-bottom: .25rem; }
@@ -168,6 +164,8 @@ p { margin: 0 0 1rem; }
   border-left: 3px solid var(--bar);
 }
 .bio-text > :last-child { margin-bottom: 0; }
+
+em, i { font-style: italic; letter-spacing: .01em; }
 
 /* ----- papers ----- */
 
@@ -207,7 +205,7 @@ p { margin: 0 0 1rem; }
   display: flex;
   gap: .9rem;
   margin: .45rem 0 .35rem;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--sans);
   font-size: .875rem;
 }
 
@@ -217,7 +215,7 @@ summary {
   cursor: pointer;
   width: fit-content;
   color: var(--muted);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--sans);
   font-size: .875rem;
 }
 summary:hover { color: var(--accent); }
@@ -259,7 +257,7 @@ details p {
 }
 .contact dt {
   color: var(--muted);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--sans);
   font-size: .875rem;
   padding-top: .1rem;
 }
@@ -272,7 +270,7 @@ footer {
   padding-top: 1rem;
   border-top: 1px solid var(--rule);
   color: var(--muted);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--sans);
   font-size: .875rem;
 }
 footer p { margin: 0; }
@@ -293,7 +291,11 @@ footer p { margin: 0; }
 /* ----- print (so Cmd-P gives a clean one-pager) ----- */
 
 @media print {
-  :root { --text: #000; --muted: #444; --bg: #fff; --accent: #000; }
+  /* Paper is white, so flip back to ink-on-white and re-darken the rule. */
+  :root {
+    --text: #000; --muted: #444; --bg: #fff;
+    --accent: #000; --bar: #000; --rule: #ccc;
+  }
   .tabs, .skip, summary { display: none; }
   a { text-decoration: none; }
   .js .panel { display: block; }   /* print all four tabs, not just the open one */
