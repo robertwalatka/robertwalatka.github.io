@@ -8,7 +8,7 @@
   --muted:     #a9a7a3;   /* secondary text: dates, coauthors, labels */
   --rule:      #3a3c40;   /* hairline dividers */
   --bg:        #212326;   /* soft dark grey page background */
-  --accent:    #e06a2b;   /* links + active tab: deep sunset orange */
+  --accent:    #ffce1c;   /* links + active tab */
   --bar:       #f2f0ed;   /* the vertical rule beside your photo */
 
   /* Lato is loaded from Google Fonts in index.html — it isn't installed on
@@ -76,6 +76,13 @@ h1 {
   line-height: 1.5;
 }
 
+/* The affiliation line. Bold alone reads muddy in the muted grey, so it also
+   takes the full text color — drop the `color` line to keep it grey. */
+.role strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
 .links a { overflow-wrap: anywhere; }
 
 .links {
@@ -120,6 +127,24 @@ h1 {
 .js .panel { display: none; }
 .js .panel.is-active { display: block; }
 
+/* The tab bar already labels each panel, so these headings would read twice.
+   Hide them visually but leave them in the accessibility tree — and bring
+   them back when printing, where the tab bar isn't rendered. */
+.panel > h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* With the heading out of flow, whatever follows shouldn't add its own
+   top margin on top of the panel's. */
+.panel > h2 + * { margin-top: 0; }
+
 h2 {
   margin: 0 0 1rem;
   font-size: 1.0625rem;
@@ -144,30 +169,31 @@ p { margin: 0 0 1rem; }
 }
 .interests li { margin-bottom: .25rem; }
 
-/* ----- overview: photo, vertical rule, text ----- */
+/* ----- masthead: name block, vertical rule, photo at top right ----- */
 
-.bio {
+.masthead {
   display: flex;
   gap: 1.75rem;
   /* align-items defaults to stretch, so the rule spans the full row height
-     whether the photo or the text is taller. */
+     whether the text or the photo is taller. */
 }
 
+.masthead-text {
+  flex: 1 1 auto;
+  padding-right: 1.75rem;
+  border-right: 3px solid var(--bar);
+}
+.masthead-text > :last-child { margin-bottom: 0; }
+
 .bio-photo {
-  flex: 0 0 11rem;
-  width: 11rem;
+  flex: 0 0 8.5rem;
+  width: 8.5rem;
   height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   align-self: flex-start;
   border-radius: 2px;
 }
-
-.bio-text {
-  padding-left: 1.75rem;
-  border-left: 3px solid var(--bar);
-}
-.bio-text > :last-child { margin-bottom: 0; }
 
 /* ----- papers ----- */
 
@@ -283,9 +309,9 @@ footer p { margin: 0; }
   body { padding: 2.25rem 1.25rem 3rem; }
   h1 { font-size: 1.75rem; }
   .tabs a { margin-right: 1.25rem; }
-  .bio { flex-direction: column; gap: 1.25rem; }
-  .bio-photo { flex: 0 0 auto; width: 9rem; }
-  .bio-text { padding-left: 0; border-left: 0; }
+  .masthead { flex-direction: column; gap: 1.25rem; }
+  .masthead-text { padding-right: 0; border-right: 0; }
+  .bio-photo { flex: 0 0 auto; width: 7.5rem; }
   .contact, .cv-list { grid-template-columns: 1fr; gap: 0 0; }
   .contact dd, .cv-list dd { margin-bottom: .75rem; }
 }
@@ -301,5 +327,15 @@ footer p { margin: 0; }
   .tabs, .skip, summary { display: none; }
   a { text-decoration: none; }
   .js .panel { display: block; }   /* print all four tabs, not just the open one */
+
+  /* Tabs are hidden on paper, so the headings have to come back. */
+  .panel > h2 {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0 0 1rem;
+    overflow: visible;
+    clip-path: none;
+  }
   .panel { break-inside: avoid; }
 }

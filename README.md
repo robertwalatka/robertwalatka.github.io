@@ -31,6 +31,12 @@ and the `<h2>` inside that section. To reorder them, reorder the `<a>` links.
 To add a fifth, add an `<a href="#newid">` link and a matching
 `<section class="panel" id="newid">`.
 
+Each section's `<h2>` is hidden on screen, because the tab bar already shows the
+same word. It's still in the markup on purpose: screen readers use it to
+navigate, and printing brings it back — on paper there's no tab bar, so the
+headings are the only thing labelling the four stacked sections. Don't delete
+them.
+
 If a visitor has JavaScript off, all four sections simply stack down the page —
 nothing is lost. Printing the page does the same, so Cmd-P gives you everything.
 
@@ -39,44 +45,41 @@ nothing is lost. Printing the page does the same, so Cmd-P gives you everything.
 The whole site uses one type stack and one palette, both at the top of
 `style.css` in the `:root` block:
 
-- `--sans` is the font stack, led by **Futura**. Futura ships with macOS and
-  iOS, so Mac and iPhone visitors see it. Windows and Android don't have it and
-  will fall back to Avenir Next / Century Gothic / Jost / Trebuchet MS, in that
-  order. If you want Futura's look everywhere, see the note below.
+- `--sans` is the font stack, led by **Lato**. Lato isn't installed on any
+  operating system, so `index.html` loads it from Google Fonts — which means
+  every visitor sees the same thing, Windows included. The Helvetica/Arial
+  fallbacks only show for the instant before it arrives, or for people who
+  block webfonts. If you ever swap the font, change the Google Fonts `<link>`
+  in `index.html` *and* `--sans` here.
 - `--bg` is the dark grey background, `--text` the off-white text, `--accent`
-  the link color, `--bar` the vertical rule beside your photo.
+  the link and active-tab color, `--bar` the vertical rule beside your photo.
+
+If you change `--accent`, check it still contrasts against `--bg`. Paste both
+into [WebAIM's contrast checker](https://webaim.org/resources/contrastchecker/)
+and aim for 4.5:1 or better, since the accent is used on link text.
 
 The site is dark all the time — it no longer follows the visitor's light/dark
 setting. Printing is the one exception: Cmd-P flips to black-on-white so you
 don't get a grey slab, and prints all four tabs.
 
-### Getting Futura on Windows too
-
-Add this line in `index.html` just above the `<link rel="stylesheet">`:
-
-```html
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-```
-
-Jost is a free Futura-alike. It's already in the fallback list, so adding the
-link is all it takes — Mac users still get real Futura, everyone else gets Jost
-instead of Trebuchet. The tradeoff is one request to Google's servers.
-
 ## Adding your photo
 
-Drop a portrait-crop image into `files/` and point the Overview tab's `<img>` at
-it — change `src="files/profile.svg"` to `src="files/profile.jpg"`. The shipped
-`profile.svg` is just a grey placeholder; delete it once yours is in.
+The photo lives in the masthead at the top right, in `files/profile.jpg`. To
+replace it, overwrite that file with a 4:5 portrait crop and update the `<img>`
+width/height to match.
 
-The black vertical rule beside the photo is `--bar` in `style.css`. It's
-near-black in light mode and near-white in dark mode so it stays visible either
-way — if you want it black always, set both `--bar` values to `#111111`.
+Keep it small — a camera original is several megabytes and will make the page
+crawl. `files/profile.jpg` is 600x750 at about 67 KB. On a Mac you can crop and
+shrink one in Terminal without any extra software:
+
+```bash
+sips --cropOffset 250 1145 -c 2598 2078 original.jpg --out files/profile.jpg && sips -z 750 600 files/profile.jpg && sips -s formatOptions 72 files/profile.jpg --out files/profile.jpg
+```
+
+The vertical rule between the text and the photo is `--bar` in `style.css`.
+Delete the `border-right` line in `.masthead-text` to remove it.
 
 ## Adding a paper
 
 Copy one whole `<li>` ... `</li>` block inside `<ol class="papers">` and edit the
 copy. Drop the PDF into `files/` and point the link at `files/your-file.pdf`.
-
-## Changing the accent color
-
-In `style.css`, edit `--accent` (two places: light mode and the dark-mode block).

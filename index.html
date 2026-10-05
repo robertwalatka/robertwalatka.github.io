@@ -25,19 +25,30 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <header>
-  <!-- ===== EDIT ME: your name, role, department ===== -->
-  <h1>Robert Walatka</h1>
-  <p class="role">
-    The University of Chicago Booth School of Business<br>
-    PhD Student, [Department]
-  </p>
+  <div class="masthead">
 
-  <!-- Address is assembled by the script at the bottom of this file. To
-       change it, edit EMAIL_ROT13 there — not here. -->
-  <p class="links">
-    <a class="email" data-show="full" href="#">[email]</a>
-    <noscript>robert.walatka <em>at</em> chicagobooth <em>dot</em> edu</noscript>
-  </p>
+    <div class="masthead-text">
+      <!-- ===== EDIT ME: your name, role, department ===== -->
+      <h1>Robert Walatka</h1>
+      <p class="role">
+        <strong>The University of Chicago Booth School of Business</strong><br>
+        PhD Student, [Department]
+      </p>
+
+      <!-- Address is assembled by the script at the bottom of this file. To
+           change it, edit EMAIL_USER / EMAIL_DOMAIN there — not here. -->
+      <p class="links">
+        <a class="email" data-show="full" href="#">[email]</a>
+        <noscript>robert.walatka <em>at</em> chicagobooth <em>dot</em> edu</noscript>
+      </p>
+    </div>
+
+    <!-- To swap this out: replace files/profile.jpg with a 4:5 portrait crop
+         and update width/height to match. -->
+    <img class="bio-photo" src="files/profile.jpg" alt="Robert Walatka"
+         width="600" height="750">
+
+  </div>
 
   <nav class="tabs" aria-label="Sections">
     <a href="#overview">Overview</a>
@@ -51,41 +62,34 @@
 
 <!-- =================== TAB 1: OVERVIEW =================== -->
 <section class="panel" id="overview">
+  <!-- Hidden on screen: the tab bar already says "Overview". Kept for
+       screen readers and for printing, where the tabs don't appear. -->
   <h2>Overview</h2>
 
-  <div class="bio">
-
-    <!-- To swap this out: replace files/profile.jpg with a 4:5 portrait crop
-         and update width/height to match. -->
-    <img class="bio-photo" src="files/profile.jpg" alt="Robert Walatka"
-         width="600" height="750">
-
-    <div class="bio-text">
-      <!-- ===== EDIT ME ===== -->
-      <p>
-        I am a PhD student in [Department] at [University], where I work with
-        [advisor name]. My research studies [one sentence on the big question].
-      </p>
-      <p>
-        Before starting my PhD I [previous role / degree / institution]. I am
-        broadly interested in:
-      </p>
-      <ul class="interests">
-        <li>[Research interest one]</li>
-        <li>[Research interest two]</li>
-        <li>[Research interest three]</li>
-      </ul>
-      <p>
-        I am on the job market in [year]. The best way to reach me is
-        <a class="email" href="#">email</a>.
-      </p>
-    </div>
-
-  </div>
+  <!-- ===== EDIT ME ===== -->
+  <p>
+    I am a PhD student in [Department] at [University], where I work with
+    [advisor name]. My research studies [one sentence on the big question].
+  </p>
+  <p>
+    Before starting my PhD I [previous role / degree / institution]. I am
+    broadly interested in:
+  </p>
+  <ul class="interests">
+    <li>[Research interest one]</li>
+    <li>[Research interest two]</li>
+    <li>[Research interest three]</li>
+  </ul>
+  <p>
+    I am on the job market in [year]. The best way to reach me is
+    <a class="email" href="#">email</a>.
+  </p>
 </section>
 
 <!-- =================== TAB 2: PAPERS =================== -->
 <section class="panel" id="papers">
+  <!-- Hidden on screen: the tab bar already says "Papers". Kept for
+       screen readers and for printing, where the tabs don't appear. -->
   <h2>Papers</h2>
 
   <h3>Working papers</h3>
@@ -129,6 +133,8 @@
 
 <!-- =================== TAB 3: CV =================== -->
 <section class="panel" id="cv">
+  <!-- Hidden on screen: the tab bar already says "CV". Kept for
+       screen readers and for printing, where the tabs don't appear. -->
   <h2>CV</h2>
 
   <p>
@@ -184,6 +190,8 @@
 
 <!-- =================== TAB 4: PERSONAL =================== -->
 <section class="panel" id="personal">
+  <!-- Hidden on screen: the tab bar already says "Personal". Kept for
+       screen readers and for printing, where the tabs don't appear. -->
   <h2>Personal</h2>
 
   <!-- ===== EDIT ME: this tab is yours. A few ideas below — keep what you
