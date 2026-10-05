@@ -28,7 +28,11 @@ body {
   margin: 0 auto;
   padding: 3.5rem 1.5rem 4rem;
   max-width: var(--max-width);
-  background: var(--bg);
+  background-color: var(--bg);
+  /* Barely-there texture: a 240px tile of tiny dots and dashes, half a touch
+     lighter than the page and half a touch darker, all at 5-10% opacity. It
+     should read as grain, not as a pattern. Delete this line to remove it. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Ccircle cx='116.0' cy='35.0' r='1.18' fill='%23ffffff' opacity='0.056'/%3E%3Ccircle cx='75.0' cy='225.3' r='0.72' fill='%23000000' opacity='0.096'/%3E%3Ccircle cx='169.1' cy='232.2' r='1.26' fill='%23ffffff' opacity='0.072'/%3E%3Ccircle cx='131.6' cy='15.8' r='0.99' fill='%23000000' opacity='0.063'/%3E%3Ccircle cx='41.3' cy='7.4' r='1.24' fill='%23ffffff' opacity='0.066'/%3E%3Ccircle cx='75.7' cy='144.2' r='1.06' fill='%23000000' opacity='0.091'/%3E%3Ccircle cx='127.9' cy='79.5' r='1.09' fill='%23ffffff' opacity='0.079'/%3E%3Ccircle cx='76.9' cy='79.5' r='1.36' fill='%23000000' opacity='0.068'/%3E%3Ccircle cx='109.0' cy='223.7' r='1.4' fill='%23ffffff' opacity='0.07'/%3E%3Ccircle cx='197.3' cy='120.9' r='0.71' fill='%23000000' opacity='0.065'/%3E%3Ccircle cx='177.8' cy='46.4' r='1.19' fill='%23ffffff' opacity='0.061'/%3E%3Ccircle cx='115.4' cy='84.3' r='0.69' fill='%23000000' opacity='0.074'/%3E%3Ccircle cx='120.4' cy='38.6' r='0.81' fill='%23ffffff' opacity='0.085'/%3E%3Ccircle cx='27.1' cy='157.1' r='0.93' fill='%23000000' opacity='0.09'/%3E%3Ccircle cx='33.7' cy='199.7' r='0.62' fill='%23ffffff' opacity='0.05'/%3E%3Ccircle cx='24.8' cy='91.5' r='0.61' fill='%23000000' opacity='0.065'/%3E%3Ccircle cx='97.7' cy='144.8' r='0.81' fill='%23ffffff' opacity='0.066'/%3E%3Ccircle cx='127.3' cy='201.7' r='1.02' fill='%23000000' opacity='0.076'/%3E%3Ccircle cx='102.9' cy='15.5' r='1.45' fill='%23ffffff' opacity='0.072'/%3E%3Ccircle cx='42.3' cy='184.2' r='0.7' fill='%23000000' opacity='0.082'/%3E%3Ccircle cx='47.5' cy='151.4' r='1.15' fill='%23ffffff' opacity='0.064'/%3E%3Ccircle cx='80.7' cy='188.4' r='0.89' fill='%23000000' opacity='0.06'/%3E%3Ccircle cx='121.9' cy='44.4' r='0.93' fill='%23ffffff' opacity='0.074'/%3E%3Ccircle cx='63.1' cy='27.1' r='1.2' fill='%23000000' opacity='0.089'/%3E%3Ccircle cx='187.9' cy='51.5' r='1.05' fill='%23ffffff' opacity='0.051'/%3E%3Ccircle cx='69.3' cy='104.5' r='1.19' fill='%23000000' opacity='0.092'/%3E%3Ccircle cx='213.5' cy='137.5' r='1.23' fill='%23ffffff' opacity='0.051'/%3E%3Ccircle cx='130.7' cy='159.4' r='1.1' fill='%23000000' opacity='0.098'/%3E%3Ccircle cx='123.1' cy='71.0' r='1.46' fill='%23ffffff' opacity='0.078'/%3E%3Ccircle cx='215.8' cy='34.3' r='0.9' fill='%23000000' opacity='0.071'/%3E%3Cline x1='176.7' y1='122.6' x2='181.9' y2='123.8' stroke='%23000000' stroke-width='0.8' stroke-linecap='round' opacity='0.085'/%3E%3Cline x1='56.0' y1='165.1' x2='62.6' y2='165.1' stroke='%23ffffff' stroke-width='0.85' stroke-linecap='round' opacity='0.051'/%3E%3Cline x1='121.6' y1='20.1' x2='128.5' y2='20.5' stroke='%23000000' stroke-width='1.05' stroke-linecap='round' opacity='0.086'/%3E%3Cline x1='74.4' y1='24.7' x2='80.0' y2='25.5' stroke='%23ffffff' stroke-width='0.95' stroke-linecap='round' opacity='0.073'/%3E%3Cline x1='153.1' y1='175.0' x2='157.8' y2='173.8' stroke='%23000000' stroke-width='0.93' stroke-linecap='round' opacity='0.082'/%3E%3Cline x1='93.8' y1='92.7' x2='98.2' y2='91.5' stroke='%23ffffff' stroke-width='0.71' stroke-linecap='round' opacity='0.072'/%3E%3Cline x1='219.8' y1='77.4' x2='226.9' y2='77.7' stroke='%23000000' stroke-width='0.86' stroke-linecap='round' opacity='0.07'/%3E%3Cline x1='115.6' y1='40.4' x2='123.8' y2='39.4' stroke='%23ffffff' stroke-width='0.99' stroke-linecap='round' opacity='0.066'/%3E%3Cline x1='154.9' y1='200.9' x2='162.0' y2='198.8' stroke='%23000000' stroke-width='1.03' stroke-linecap='round' opacity='0.058'/%3E%3Cline x1='125.7' y1='101.0' x2='132.1' y2='101.1' stroke='%23ffffff' stroke-width='0.72' stroke-linecap='round' opacity='0.062'/%3E%3Cline x1='94.5' y1='84.5' x2='100.6' y2='82.5' stroke='%23000000' stroke-width='0.79' stroke-linecap='round' opacity='0.071'/%3E%3Cline x1='46.5' y1='113.6' x2='54.6' y2='113.8' stroke='%23ffffff' stroke-width='0.73' stroke-linecap='round' opacity='0.065'/%3E%3Cline x1='113.5' y1='179.0' x2='121.4' y2='177.2' stroke='%23000000' stroke-width='1.07' stroke-linecap='round' opacity='0.074'/%3E%3Cline x1='128.8' y1='88.7' x2='134.7' y2='87.6' stroke='%23ffffff' stroke-width='0.85' stroke-linecap='round' opacity='0.06'/%3E%3Cline x1='200.0' y1='175.1' x2='207.3' y2='177.7' stroke='%23000000' stroke-width='0.88' stroke-linecap='round' opacity='0.055'/%3E%3Cline x1='55.8' y1='36.0' x2='59.5' y2='37.6' stroke='%23ffffff' stroke-width='0.89' stroke-linecap='round' opacity='0.052'/%3E%3Cline x1='60.7' y1='117.4' x2='68.9' y2='117.8' stroke='%23000000' stroke-width='0.73' stroke-linecap='round' opacity='0.07'/%3E%3Cline x1='16.3' y1='145.7' x2='22.4' y2='145.7' stroke='%23ffffff' stroke-width='0.89' stroke-linecap='round' opacity='0.045'/%3E%3C/svg%3E");
   color: var(--text);
   font: 400 1.0625rem/1.68 var(--sans);
   -webkit-font-smoothing: antialiased;
@@ -110,7 +114,7 @@ h1 {
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: .5rem;
   border-bottom: 1px solid var(--rule);
   font-family: var(--sans);
   font-size: .9375rem;
@@ -197,13 +201,15 @@ p { margin: 0 0 1rem; }
 }
 .masthead-text > :last-child { margin-bottom: 0; }
 
-/* The mountain divider. No viewBox — it takes its size from here and the
-   pattern inside tiles in CSS pixels, so the peaks never stretch. */
-.ridge {
-  flex: 0 0 2.5rem;
-  width: 2.5rem;
-  align-self: stretch;
+/* The skyline under the masthead. Deliberately faint — it should register as
+   texture, not as an illustration competing with the name. */
+.range {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1.75rem 0 0;
   color: var(--bar);
+  opacity: .22;
 }
 
 .bio-photo {
@@ -331,7 +337,6 @@ footer p { margin: 0; }
   h1 { font-size: 1.75rem; }
   .tabs a { margin-right: 1.25rem; }
   .masthead { flex-direction: column; gap: 1.25rem; }
-  .ridge { display: none; }
   .bio-photo { flex: 0 0 auto; width: 9rem; }
   .contact, .cv-list { grid-template-columns: 1fr; gap: 0 0; }
   .contact dd, .cv-list dd { margin-bottom: .75rem; }
@@ -347,6 +352,8 @@ footer p { margin: 0; }
   }
   /* No ink slab on paper — show the title as plain text. */
   .role-title { background: none; color: #000; padding: 0; }
+  body { background-image: none; }
+  .range { display: none; }
   .tabs, .skip, summary { display: none; }
   a { text-decoration: none; }
   .js .panel { display: block; }   /* print all four tabs, not just the open one */

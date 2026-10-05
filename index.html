@@ -43,38 +43,6 @@
       </p>
     </div>
 
-    <!-- Decorative divider: a line-drawn mountain range. The <pattern> tiles
-         down the full height of the masthead, so the peaks keep their shape
-         no matter how tall the name block or photo gets. Edit the path's
-         points to reshape the peaks; stroke follows --bar via currentColor. -->
-    <svg class="ridge" aria-hidden="true" focusable="false">
-      <defs>
-        <!-- A line-drawn mountain range. The straight spine on the right is the
-             "ground"; three asymmetric peaks of different sizes rise off it to
-             the left, each with a ridge line falling from the summit. The tile
-             repeats every 132px and all peaks sit inside it, so the joins fall
-             on the plain spine and stay invisible at any height.
-             To make the range sharper, lower the peak x values (7, 19, 11). -->
-        <pattern id="ridge-tile" width="40" height="132" patternUnits="userSpaceOnUse">
-          <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round">
-            <!-- ground -->
-            <path d="M36 0 L36 132" stroke-width="1.4" opacity=".45"/>
-            <!-- peaks -->
-            <g stroke-width="1.6">
-              <path d="M36 8   L7 26   L36 54"/>
-              <path d="M36 64  L19 78  L36 94"/>
-              <path d="M36 100 L11 114 L36 128"/>
-            </g>
-            <!-- ridge lines off the two larger summits -->
-            <g stroke-width="1.1" opacity=".5">
-              <path d="M7 26 L14 34 L11 40"/>
-              <path d="M11 114 L17 120"/>
-            </g>
-          </g>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#ridge-tile)"/>
-    </svg>
 
     <!-- To swap this out: replace files/profile.jpg with a 4:5 portrait crop
          and update width/height to match. -->
@@ -82,6 +50,54 @@
          width="600" height="750">
 
   </div>
+
+  <!-- Decorative skyline: one continuous contour, drawn the way single-line
+       mountain art is — the stroke doubles back below each summit to leave a
+       thin ridge "lens". The flanks are long and nearly straight and the
+       saddles drop well below the summits; flatten either and it stops
+       reading as mountains. Opacity is set in .range. -->
+  <svg class="range" viewBox="0 0 1000 168" aria-hidden="true" focusable="false">
+    <g fill="none" stroke="currentColor" stroke-width="1.5"
+       stroke-linecap="round" stroke-linejoin="round">
+
+      <!-- skyline -->
+      <path d="M0 136
+               C 26 133, 56 124, 84 104
+               C 112 84, 144 44, 174 18
+               C 182 28, 192 48, 206 66
+               C 226 90, 250 110, 276 120
+               C 302 130, 330 126, 356 130
+               C 380 134, 404 138, 426 132
+               C 442 127, 452 116, 462 104
+               C 478 86, 498 66, 516 52
+               C 521 48, 527 46, 531 52
+               C 542 68, 554 92, 570 108
+               C 590 128, 616 136, 642 130
+               C 658 126, 672 116, 686 104
+               C 710 84, 734 56, 758 34
+               C 768 25, 778 20, 788 26
+               C 798 32, 806 48, 816 62
+               C 830 82, 846 98, 864 106
+               C 894 118, 946 130, 1000 140"/>
+
+      <!-- ridge lenses falling from the summits -->
+      <path d="M173 19
+               C 158 46, 146 80, 141 112
+               C 150 80, 163 46, 177 22" stroke-width="1.3"/>
+      <path d="M529 51
+               C 524 68, 520 88, 519 106
+               C 525 88, 531 68, 534 53" stroke-width="1.2"/>
+      <path d="M787 27
+               C 778 50, 772 74, 770 96
+               C 776 74, 784 50, 792 30" stroke-width="1.3"/>
+      <path d="M800 40
+               C 798 57, 798 72, 801 85
+               C 804 71, 804 55, 803 42" stroke-width="1.1"/>
+      <path d="M120 86
+               C 114 99, 110 112, 109 124
+               C 113 111, 118 98, 124 88" stroke-width="1.1"/>
+    </g>
+  </svg>
 
   <nav class="tabs" aria-label="Sections">
     <a href="#overview">Overview</a>

@@ -76,14 +76,29 @@ shrink one in Terminal without any extra software:
 sips --cropOffset 250 1145 -c 2598 2078 original.jpg --out files/profile.jpg && sips -z 750 600 files/profile.jpg && sips -s formatOptions 72 files/profile.jpg --out files/profile.jpg
 ```
 
-The divider between the text and the photo is the inline `<svg class="ridge">`
-in `index.html` — a line-drawn mountain range that tiles down the full height
-of the masthead, so the peaks keep their shape however tall it gets. Its color
-follows `--bar`. To reshape the peaks, edit the small x values in the three
-`<path>` points; to remove it, delete the whole `<svg>`.
+## The mountains and the grain
 
-The highlighted job-title line uses `--highlight` for the block behind it. Both
-that block and the mountains are suppressed when printing.
+Two decorative bits, both pure CSS/SVG with no image files and no extra
+requests:
+
+**The skyline** is the inline `<svg class="range">` between the masthead and the
+tab bar. It's one continuous contour in the single-line-drawing style, with a
+second stroke doubling back below each summit to leave the thin ridge "lenses".
+It scales with the page width. Its colour follows `--bar` and its faintness is
+the `opacity` in `.range` — raise that if you want it more present. To remove
+it, delete the whole `<svg>`.
+
+If you reshape the path, keep the proportions roughly 6:1 or steeper. Flatter
+than that and the peaks stop reading as mountains and start looking like hills.
+
+**The grain** is the `background-image` on `body` in `style.css`: a 240px tile
+of about 50 tiny dots and dashes, half a shade lighter than the page and half a
+shade darker, none above 10% opacity. It covers under 1% of the tile, so it
+registers as texture rather than pattern. Delete that one declaration to remove
+it.
+
+The highlighted job-title line uses `--highlight` for the block behind it. The
+grain, the skyline and that block are all suppressed when printing.
 
 ## Adding a paper
 
