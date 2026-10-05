@@ -81,28 +81,25 @@ sips --cropOffset 250 1145 -c 2598 2078 original.jpg --out files/profile.jpg && 
 Two decorative bits, both pure CSS/SVG with no image files and no extra
 requests:
 
-**The skyline** is the inline `<svg class="range">` in the masthead, dividing
-the text from the photo. It's one continuous contour in the single-line-drawing
-style, with a second stroke doubling back below each summit to leave the thin
-ridge "lenses". Its colour follows `--bar` and its faintness is the `opacity` in
+**The skyline** is the inline `<svg class="range">` between the masthead and
+the tab bar. It's one continuous contour in the single-line-drawing style, with
+a second stroke doubling back below each summit to leave the thin ridge
+"lenses", plus a scalloped line across each peak for the snow cap. It spans the
+page width. Its colour follows `--bar` and its faintness is the `opacity` in
 `.range` — raise that if you want it more present. To remove it, delete the
 whole `<svg>`.
 
-The path is drawn horizontally and a `<g transform="rotate(-90)">` stands it on
-end, which is why the viewBox looks transposed. Three details matter if you
-reshape it:
+Three things matter if you reshape it:
 
 - Keep the relief steep — roughly 6:1 or better. Flatter and the peaks read as
   hills, not mountains.
-- The viewBox is a *window* onto the range (`0 110 168 630` of a 1000-long
-  drawing), showing two summits rather than all five. A long shallow line in a
-  narrow column looks like a squiggle; fewer peaks keeps the relief deep
-  relative to the column's length.
-- `vector-effect="non-scaling-stroke"` holds the line at a true 1.4px however
-  far the viewBox is scaled down. Without it the stroke thins to near-invisible.
+- Snow caps have to sit *inside* the silhouette, below the apex and between the
+  two flanks, or they poke out through the skyline.
+- Don't stack a snow cap on top of two ridge lenses at the same summit; the
+  three lines tangle. One lens plus one snow cap per peak is the limit.
 
-`preserveAspectRatio="xMidYMid slice"` means an unusually tall masthead crops
-the range rather than stretching it, so the peaks never distort.
+To see your edits clearly while working, temporarily set `.range`'s opacity to
+`1` and narrow the `viewBox` to one peak (e.g. `700 0 260 130`).
 
 **The grain** is the `background-image` on `body` in `style.css`: a 240px tile
 of about 50 tiny dots and dashes, half a shade lighter than the page and half a

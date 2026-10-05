@@ -44,68 +44,63 @@
     </div>
 
 
-    <!-- The same skyline, stood on end to divide the text from the photo.
-         The drawing is untouched; the <g> rotates it -90deg so the summits
-         point left and the ground line falls beside the photo.
-
-         Two things make it work vertically. The viewBox is a *window* onto the
-         range (y 110-740 of the rotated 1000) rather than the whole thing —
-         showing two summits instead of five keeps the relief deep relative to
-         the column's length, which is what makes it read as mountains at all.
-         And vector-effect keeps the stroke at a true 1-1.4px however much the
-         viewBox is scaled down, so the line doesn't vanish.
-
-         preserveAspectRatio="slice" fills the column by cropping rather than
-         stretching, so the peaks never distort when the masthead changes
-         height. Colour follows --bar; faintness is .range in style.css. -->
-    <svg class="range" viewBox="0 110 168 630"
-         preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-      <g transform="rotate(-90) translate(-1000 0)"
-         fill="none" stroke="currentColor" stroke-width="1.4"
-         stroke-linecap="round" stroke-linejoin="round"
-         vector-effect="non-scaling-stroke">
-          <path d="M0 136
-                     C 26 133, 56 124, 84 104
-                     C 112 84, 144 44, 174 18
-                     C 182 28, 192 48, 206 66
-                     C 226 90, 250 110, 276 120
-                     C 302 130, 330 126, 356 130
-                     C 380 134, 404 138, 426 132
-                     C 442 127, 452 116, 462 104
-                     C 478 86, 498 66, 516 52
-                     C 521 48, 527 46, 531 52
-                     C 542 68, 554 92, 570 108
-                     C 590 128, 616 136, 642 130
-                     C 658 126, 672 116, 686 104
-                     C 710 84, 734 56, 758 34
-                     C 768 25, 778 20, 788 26
-                     C 798 32, 806 48, 816 62
-                     C 830 82, 846 98, 864 106
-                     C 894 118, 946 130, 1000 140"/>
-          <path d="M120 86
-                     C 114 99, 110 112, 109 124
-                     C 113 111, 118 98, 124 88" stroke-width="1"/>
-          <path d="M173 19
-                     C 158 46, 146 80, 141 112
-                     C 150 80, 163 46, 177 22" stroke-width="1"/>
-          <path d="M529 51
-                     C 524 68, 520 88, 519 106
-                     C 525 88, 531 68, 534 53" stroke-width="1"/>
-          <path d="M787 27
-                     C 778 50, 772 74, 770 96
-                     C 776 74, 784 50, 792 30" stroke-width="1"/>
-          <path d="M800 40
-                     C 798 57, 798 72, 801 85
-                     C 804 71, 804 55, 803 42" stroke-width="1"/>
-      </g>
-    </svg>
-
     <!-- To swap this out: replace files/profile.jpg with a 4:5 portrait crop
          and update width/height to match. -->
     <img class="bio-photo" src="files/profile.jpg" alt="Robert Walatka"
          width="600" height="750">
 
   </div>
+
+  <!-- Decorative skyline: one continuous contour in the single-line-drawing
+       style. A second stroke doubles back below each summit to leave the thin
+       ridge "lenses", and a scalloped line crosses each peak for the snow cap.
+       Proportioned about 6:1 — flatten it and the peaks read as hills.
+       Colour follows --bar; faintness is .range in style.css. -->
+  <svg class="range" viewBox="0 0 1000 168" aria-hidden="true" focusable="false">
+    <g fill="none" stroke="currentColor" stroke-width="1.5"
+       stroke-linecap="round" stroke-linejoin="round">
+
+      <!-- skyline -->
+      <path d="M0 136
+             C 26 133, 56 124, 84 104
+             C 112 84, 144 44, 174 18
+             C 182 28, 192 48, 206 66
+             C 226 90, 250 110, 276 120
+             C 302 130, 330 126, 356 130
+             C 380 134, 404 138, 426 132
+             C 442 127, 452 116, 462 104
+             C 478 86, 498 66, 516 52
+             C 521 48, 527 46, 531 52
+             C 542 68, 554 92, 570 108
+             C 590 128, 616 136, 642 130
+             C 658 126, 672 116, 686 104
+             C 710 84, 734 56, 758 34
+             C 768 25, 778 20, 788 26
+             C 798 32, 806 48, 816 62
+             C 830 82, 846 98, 864 106
+             C 894 118, 946 130, 1000 140"/>
+
+      <!-- ridge lenses falling from the summits -->
+      <path d="M120 86
+             C 114 99, 110 112, 109 124
+             C 113 111, 118 98, 124 88" stroke-width="1.2"/>
+      <path d="M173 19
+             C 158 46, 146 80, 141 112
+             C 150 80, 163 46, 177 22" stroke-width="1.2"/>
+      <path d="M529 51
+             C 524 68, 520 88, 519 106
+             C 525 88, 531 68, 534 53" stroke-width="1.2"/>
+      <path d="M787 27
+             C 778 50, 772 74, 770 96
+             C 776 74, 784 50, 792 30" stroke-width="1.2"/>
+
+      <!-- snow caps: a scalloped line just below each apex, inside the
+           silhouette and between the two flanks -->
+      <path d="M152 52 L160 45 L168 53 L176 46 L184 55 L191 49 L198 60" stroke-width="1.1"/>
+      <path d="M518 62 L523 57 L528 64 L533 59 L540 72" stroke-width="1.1"/>
+      <path d="M772 46 L779 40 L786 47 L793 41 L800 50" stroke-width="1.1"/>
+    </g>
+  </svg>
 
   <nav class="tabs" aria-label="Sections">
     <a href="#overview">Overview</a>

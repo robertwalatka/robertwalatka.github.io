@@ -114,7 +114,7 @@ h1 {
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: .5rem;
   border-bottom: 1px solid var(--rule);
   font-family: var(--sans);
   font-size: .9375rem;
@@ -201,16 +201,15 @@ p { margin: 0 0 1rem; }
 }
 .masthead-text > :last-child { margin-bottom: 0; }
 
-/* The skyline, stood on end between the text and the photo. Fixed width,
-   stretching to whatever height the masthead happens to be. Deliberately
-   faint — it should read as texture, not compete with the name. */
+/* The skyline, spanning the page between the masthead and the tab bar.
+   Deliberately faint — it should read as texture, not compete with the name. */
 .range {
-  flex: 0 0 3.5rem;
-  width: 3.5rem;
+  display: block;
+  width: 100%;
   height: auto;
-  align-self: stretch;
+  margin: 1.75rem 0 0;
   color: var(--bar);
-  opacity: .28;
+  opacity: .22;
 }
 
 .bio-photo {
@@ -338,7 +337,6 @@ footer p { margin: 0; }
   h1 { font-size: 1.75rem; }
   .tabs a { margin-right: 1.25rem; }
   .masthead { flex-direction: column; gap: 1.25rem; }
-  .range { display: none; }
   .bio-photo { flex: 0 0 auto; width: 9rem; }
   .contact, .cv-list { grid-template-columns: 1fr; gap: 0 0; }
   .contact dd, .cv-list dd { margin-bottom: .75rem; }
