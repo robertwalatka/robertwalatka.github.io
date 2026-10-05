@@ -11,6 +11,10 @@
 
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='14'>&#128218;</text></svg>">
+
+<!-- Flags that JavaScript is on, so the stylesheet can hide inactive tabs
+     before the page paints. With JS off, all four sections simply stack. -->
+<script>document.documentElement.className = "js";</script>
 </head>
 
 <body>
@@ -27,23 +31,26 @@
   <!-- ===== EDIT ME: delete any line you don't want ===== -->
   <ul class="links">
     <li><a href="mailto:rwalatka@uchicago.edu">Email</a></li>
-    <li><a href="files/cv.pdf">CV</a></li>
+    <li><a href="files/cv.pdf">CV&nbsp;(PDF)</a></li>
     <li><a href="https://scholar.google.com/citations?user=YOUR_ID">Google&nbsp;Scholar</a></li>
     <li><a href="https://github.com/YOUR_USERNAME">GitHub</a></li>
     <li><a href="https://www.linkedin.com/in/YOUR_HANDLE">LinkedIn</a></li>
   </ul>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#contact">Contact</a>
+  <nav class="tabs" aria-label="Sections">
+    <a href="#overview">Overview</a>
+    <a href="#papers">Papers</a>
+    <a href="#cv">CV</a>
+    <a href="#personal">Personal</a>
   </nav>
 </header>
 
 <main id="main">
 
-<section id="about">
-  <h2>About</h2>
+<!-- =================== TAB 1: OVERVIEW =================== -->
+<section class="panel" id="overview">
+  <h2>Overview</h2>
+
   <!-- ===== EDIT ME ===== -->
   <p>
     I am a PhD student in [Department] at [University], where I work with
@@ -58,10 +65,15 @@
     <li>[Research interest two]</li>
     <li>[Research interest three]</li>
   </ul>
+  <p>
+    I am on the job market in [year]. The best way to reach me is
+    <a href="mailto:rwalatka@uchicago.edu">email</a>.
+  </p>
 </section>
 
-<section id="research">
-  <h2>Research</h2>
+<!-- =================== TAB 2: PAPERS =================== -->
+<section class="panel" id="papers">
+  <h2>Papers</h2>
 
   <h3>Working papers</h3>
   <ol class="papers">
@@ -102,12 +114,43 @@
   </ul>
 </section>
 
-<section id="contact">
-  <h2>CV &amp; contact</h2>
+<!-- =================== TAB 3: CV =================== -->
+<section class="panel" id="cv">
+  <h2>CV</h2>
+
   <p>
-    My full CV is available <a href="files/cv.pdf">here (PDF)</a>.
+    Full CV: <a href="files/cv.pdf">download as PDF</a>
+    <span class="paper-meta">(updated October 2026)</span>
   </p>
-  <!-- ===== EDIT ME: office address, or delete the dl below ===== -->
+
+  <!-- ===== EDIT ME: short text CV below. Delete any block you don't need. ===== -->
+  <h3>Education</h3>
+  <dl class="cv-list">
+    <dt>2022&ndash;</dt>
+    <dd>PhD, [Department], [University]</dd>
+    <dt>2020</dt>
+    <dd>MA, [Field], [University]</dd>
+    <dt>2018</dt>
+    <dd>BA, [Field], [University]</dd>
+  </dl>
+
+  <h3>Teaching</h3>
+  <dl class="cv-list">
+    <dt>2025</dt>
+    <dd>TA, [Course Name] &mdash; [instructor name]</dd>
+    <dt>2024</dt>
+    <dd>TA, [Course Name] &mdash; [instructor name]</dd>
+  </dl>
+
+  <h3>Awards &amp; funding</h3>
+  <dl class="cv-list">
+    <dt>2025</dt>
+    <dd>[Fellowship or grant name]</dd>
+    <dt>2023</dt>
+    <dd>[Award name]</dd>
+  </dl>
+
+  <h3>Contact</h3>
   <dl class="contact">
     <dt>Email</dt>
     <dd><a href="mailto:rwalatka@uchicago.edu">rwalatka@uchicago.edu</a></dd>
@@ -116,11 +159,68 @@
   </dl>
 </section>
 
+<!-- =================== TAB 4: PERSONAL =================== -->
+<section class="panel" id="personal">
+  <h2>Personal</h2>
+
+  <!-- ===== EDIT ME: this tab is yours. A few ideas below — keep what you
+       like, delete the rest. ===== -->
+  <p>
+    Outside of research I [hobby, sport, instrument, side project]. I grew up in
+    [place] and have been in Chicago since [year].
+  </p>
+
+  <h3>Currently</h3>
+  <ul class="interests">
+    <li>Reading: [book title]</li>
+    <li>Working on: [side project]</li>
+    <li>Trying to get better at: [thing]</li>
+  </ul>
+
+  <h3>Elsewhere</h3>
+  <p>
+    [Optional: a link to a photo set, a blog, a Strava profile, a reading list,
+    a recipe you're proud of — whatever you'd actually want a colleague to see.]
+  </p>
+</section>
+
 </main>
 
 <footer>
   <p>Last updated October 2026.</p>
 </footer>
+
+<script>
+(function () {
+  var tabs   = Array.prototype.slice.call(document.querySelectorAll(".tabs a"));
+  var panels = Array.prototype.slice.call(document.querySelectorAll(".panel"));
+  if (!tabs.length || !panels.length) return;
+
+  function show(id) {
+    var known = panels.some(function (p) { return p.id === id; });
+    if (!known) id = panels[0].id;
+
+    panels.forEach(function (p) {
+      p.classList.toggle("is-active", p.id === id);
+    });
+    tabs.forEach(function (t) {
+      if (t.getAttribute("href") === "#" + id) t.setAttribute("aria-current", "page");
+      else t.removeAttribute("aria-current");
+    });
+  }
+
+  function syncToHash() {
+    show(location.hash.slice(1));
+  }
+
+  window.addEventListener("hashchange", function () {
+    syncToHash();
+    window.scrollTo(0, 0);
+  });
+
+  syncToHash();
+})();
+</script>
 
 </body>
 </html>

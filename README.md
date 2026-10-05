@@ -19,6 +19,21 @@ A single-page academic site, hosted free on GitHub Pages.
 4. In GitHub Desktop: write a short summary, **Commit to main**, then **Push origin**.
 5. Wait ~30-60 seconds and reload your live site.
 
+## The four tabs
+
+The page has four tabs — Overview, Papers, CV, Personal — and they're just four
+`<section class="panel">` blocks in `index.html`, each marked with a big comment
+banner. Clicking a tab shows one and hides the others; the URL updates too, so
+`...github.io/#papers` links straight to the Papers tab and the back button works.
+
+To rename a tab, change it in *two* places: the link text in `<nav class="tabs">`
+and the `<h2>` inside that section. To reorder them, reorder the `<a>` links.
+To add a fifth, add an `<a href="#newid">` link and a matching
+`<section class="panel" id="newid">`.
+
+If a visitor has JavaScript off, all four sections simply stack down the page —
+nothing is lost. Printing the page does the same, so Cmd-P gives you everything.
+
 ## Adding a paper
 
 Copy one whole `<li>` ... `</li>` block inside `<ol class="papers">` and edit the
