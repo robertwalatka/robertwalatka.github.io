@@ -6,8 +6,8 @@
 :root {
   --text:      #f2f0ed;   /* off-white body text */
   --muted:     #a9a7a3;   /* secondary text: dates, coauthors, labels */
-  --rule:      #45474b;   /* hairline dividers */
-  --bg:        #2e3033;   /* soft dark grey page background */
+  --rule:      #3a3c40;   /* hairline dividers */
+  --bg:        #212326;   /* soft dark grey page background */
   --accent:    #e8927c;   /* link color — swap for your own */
   --bar:       #f2f0ed;   /* the vertical rule beside your photo */
 
