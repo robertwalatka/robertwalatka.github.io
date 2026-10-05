@@ -114,7 +114,7 @@ h1 {
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  margin-top: .5rem;
+  margin-top: 2rem;
   border-bottom: 1px solid var(--rule);
   font-family: var(--sans);
   font-size: .9375rem;
@@ -201,15 +201,16 @@ p { margin: 0 0 1rem; }
 }
 .masthead-text > :last-child { margin-bottom: 0; }
 
-/* The skyline under the masthead. Deliberately faint — it should register as
-   texture, not as an illustration competing with the name. */
+/* The skyline, stood on end between the text and the photo. Fixed width,
+   stretching to whatever height the masthead happens to be. Deliberately
+   faint — it should read as texture, not compete with the name. */
 .range {
-  display: block;
-  width: 100%;
+  flex: 0 0 3.5rem;
+  width: 3.5rem;
   height: auto;
-  margin: 1.75rem 0 0;
+  align-self: stretch;
   color: var(--bar);
-  opacity: .22;
+  opacity: .28;
 }
 
 .bio-photo {
@@ -337,6 +338,7 @@ footer p { margin: 0; }
   h1 { font-size: 1.75rem; }
   .tabs a { margin-right: 1.25rem; }
   .masthead { flex-direction: column; gap: 1.25rem; }
+  .range { display: none; }
   .bio-photo { flex: 0 0 auto; width: 9rem; }
   .contact, .cv-list { grid-template-columns: 1fr; gap: 0 0; }
   .contact dd, .cv-list dd { margin-bottom: .75rem; }
