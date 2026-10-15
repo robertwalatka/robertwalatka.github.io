@@ -148,37 +148,24 @@
        screen readers and for printing, where the tabs don't appear. -->
   <h2>CV</h2>
 
-  <p>
-    Full CV: <a href="files/cv.pdf">download as PDF</a>
-    <span class="paper-meta">(updated October 2026)</span>
+  <p class="cv-link">
+    <a href="files/Robert_Walatka_Academic_CV.pdf">Download CV (PDF)</a>
+    <span class="paper-meta">&middot; updated October 2026</span>
   </p>
 
-  <!-- ===== EDIT ME: short text CV below. Delete any block you don't need. ===== -->
-  <h3>Education</h3>
-  <dl class="cv-list">
-    <dt>2022&ndash;</dt>
-    <dd>PhD, [Department], [University]</dd>
-    <dt>2020</dt>
-    <dd>MA, [Field], [University]</dd>
-    <dt>2018</dt>
-    <dd>BA, [Field], [University]</dd>
-  </dl>
-
-  <h3>Teaching</h3>
-  <dl class="cv-list">
-    <dt>2025</dt>
-    <dd>TA, [Course Name] &mdash; [instructor name]</dd>
-    <dt>2024</dt>
-    <dd>TA, [Course Name] &mdash; [instructor name]</dd>
-  </dl>
-
-  <h3>Awards &amp; funding</h3>
-  <dl class="cv-list">
-    <dt>2025</dt>
-    <dd>[Fellowship or grant name]</dd>
-    <dt>2023</dt>
-    <dd>[Award name]</dd>
-  </dl>
+  <!-- Inline preview. <object> falls back to the link inside it when a browser
+       can't render PDFs, and .cv-preview is hidden on small screens, where a
+       letter-size page is unreadable anyway. To replace the CV, drop in a new
+       file and update the two paths plus the date above. -->
+  <object class="cv-preview"
+          data="files/Robert_Walatka_Academic_CV.pdf#view=FitH"
+          type="application/pdf"
+          aria-label="Preview of Robert Walatka's CV">
+    <p>
+      Your browser can't show PDFs inline &mdash;
+      <a href="files/Robert_Walatka_Academic_CV.pdf">download the CV</a> instead.
+    </p>
+  </object>
 
   <h3>Contact</h3>
   <dl class="contact">

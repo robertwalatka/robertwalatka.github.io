@@ -90,6 +90,22 @@ The vertical rule between the name block and the photo is `border-right` on
 The highlighted job-title line uses `--highlight` for the block behind it. The
 grain and that block are both suppressed when printing.
 
+## The CV tab
+
+`files/Robert_Walatka_Academic_CV.pdf` is the CV itself. The tab shows a
+download link and an inline preview — there's no text copy of the CV to keep in
+sync.
+
+To update it, drop in the replacement file and change the two paths in the CV
+panel of `index.html` (the link and the `<object data=...>`) plus the "updated"
+date beside the link. Keeping the descriptive filename matters: it's what
+people get when they save it.
+
+The preview is an `<object>` rather than an `<iframe>` so it can fall back to a
+plain link when a browser won't render PDFs inline. It's hidden below 42rem,
+where a letter-size page scaled to phone width is unreadable, and hidden when
+printing — the CV should print on its own, not nested inside the page.
+
 ## Adding a paper
 
 Copy one whole `<li>` ... `</li>` block inside `<ol class="papers">` and edit the
