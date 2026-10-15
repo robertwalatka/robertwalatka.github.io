@@ -283,6 +283,7 @@ details p {
   margin: 0;
   padding-left: 1.25rem;
 }
+.wip .paper-meta { display: inline; }
 .wip li { margin-bottom: .5rem; }
 
 /* ----- contact ----- */
