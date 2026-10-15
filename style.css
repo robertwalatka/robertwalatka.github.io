@@ -247,6 +247,12 @@ p { margin: 0 0 1rem; }
   font-size: .9375rem;
 }
 
+/* Your own name in an author list, so it's findable at a glance. */
+.paper-meta strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
 .paper-actions {
   display: flex;
   gap: .9rem;
