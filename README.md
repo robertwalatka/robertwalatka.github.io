@@ -133,6 +133,19 @@ which can remove it from results altogether.
 `sitemap.xml` lists the one page and `robots.txt` points crawlers at it. Bump
 `<lastmod>` when you make a substantive change.
 
+### IndexNow
+
+`0beb6caaf186c2c590da3388e2fbd3f2.txt` is an IndexNow key file — don't delete or rename it. It lets you
+tell Bing, DuckDuckGo, Yandex and Seznam about a change immediately instead of
+waiting to be crawled. After pushing a substantive update, run:
+
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" "https://api.indexnow.org/indexnow?url=https://robertwalatka.github.io/&key=0beb6caaf186c2c590da3388e2fbd3f2&keyLocation=https://robertwalatka.github.io/0beb6caaf186c2c590da3388e2fbd3f2.txt"
+```
+
+A 200 or 202 means accepted. Google does **not** participate in IndexNow — for
+Google, use Search Console's Request Indexing instead.
+
 Two things to keep accurate if you edit them: the title under ~60 characters and
 the description under ~155, or Google truncates them. And if you change the
 JSON-LD, paste it into Google's Rich Results Test first — malformed JSON-LD is
