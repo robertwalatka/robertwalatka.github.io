@@ -114,7 +114,7 @@ h1 {
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  margin-top: .5rem;
+  margin-top: 2rem;
   border-bottom: 1px solid var(--rule);
   font-family: var(--sans);
   font-size: .9375rem;
@@ -191,26 +191,17 @@ p { margin: 0 0 1rem; }
 
 .masthead {
   display: flex;
-  gap: 1.1rem;
+  gap: 1.75rem;
   /* align-items defaults to stretch, so the rule spans the full row height
      whether the text or the photo is taller. */
 }
 
 .masthead-text {
   flex: 1 1 auto;
+  padding-right: 1.75rem;
+  border-right: 3px solid var(--bar);
 }
 .masthead-text > :last-child { margin-bottom: 0; }
-
-/* The skyline, spanning the page between the masthead and the tab bar.
-   Deliberately faint — it should read as texture, not compete with the name. */
-.range {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 1.75rem 0 0;
-  color: var(--bar);
-  opacity: .22;
-}
 
 .bio-photo {
   flex: 0 0 10.5rem;
@@ -337,6 +328,7 @@ footer p { margin: 0; }
   h1 { font-size: 1.75rem; }
   .tabs a { margin-right: 1.25rem; }
   .masthead { flex-direction: column; gap: 1.25rem; }
+  .masthead-text { padding-right: 0; border-right: 0; }
   .bio-photo { flex: 0 0 auto; width: 9rem; }
   .contact, .cv-list { grid-template-columns: 1fr; gap: 0 0; }
   .contact dd, .cv-list dd { margin-bottom: .75rem; }
@@ -353,7 +345,6 @@ footer p { margin: 0; }
   /* No ink slab on paper — show the title as plain text. */
   .role-title { background: none; color: #000; padding: 0; }
   body { background-image: none; }
-  .range { display: none; }
   .tabs, .skip, summary { display: none; }
   a { text-decoration: none; }
   .js .panel { display: block; }   /* print all four tabs, not just the open one */

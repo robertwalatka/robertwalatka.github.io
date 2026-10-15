@@ -76,36 +76,16 @@ shrink one in Terminal without any extra software:
 sips --cropOffset 250 1145 -c 2598 2078 original.jpg --out files/profile.jpg && sips -z 750 600 files/profile.jpg && sips -s formatOptions 72 files/profile.jpg --out files/profile.jpg
 ```
 
-## The mountains and the grain
+## The grain
 
-Two decorative bits, both pure CSS/SVG with no image files and no extra
-requests:
+One decorative touch, pure CSS with no image file and no extra request: the
+`background-image` on `body` in `style.css` is a 240px tile of about 50 tiny
+dots and dashes, half a shade lighter than the page and half a shade darker,
+none above 10% opacity. It covers under 1% of the tile, so it registers as
+texture rather than pattern. Delete that one declaration to remove it.
 
-**The skyline** is the inline `<svg class="range">` between the masthead and
-the tab bar. It's one continuous contour in the single-line-drawing style, with
-a second stroke doubling back below each summit to leave the thin ridge
-"lenses", plus a scalloped line across each peak for the snow cap. It spans the
-page width. Its colour follows `--bar` and its faintness is the `opacity` in
-`.range` — raise that if you want it more present. To remove it, delete the
-whole `<svg>`.
-
-Three things matter if you reshape it:
-
-- Keep the relief steep — roughly 6:1 or better. Flatter and the peaks read as
-  hills, not mountains.
-- Snow caps have to sit *inside* the silhouette, below the apex and between the
-  two flanks, or they poke out through the skyline.
-- Don't stack a snow cap on top of two ridge lenses at the same summit; the
-  three lines tangle. One lens plus one snow cap per peak is the limit.
-
-To see your edits clearly while working, temporarily set `.range`'s opacity to
-`1` and narrow the `viewBox` to one peak (e.g. `700 0 260 130`).
-
-**The grain** is the `background-image` on `body` in `style.css`: a 240px tile
-of about 50 tiny dots and dashes, half a shade lighter than the page and half a
-shade darker, none above 10% opacity. It covers under 1% of the tile, so it
-registers as texture rather than pattern. Delete that one declaration to remove
-it.
+The vertical rule between the name block and the photo is `border-right` on
+`.masthead-text`, coloured by `--bar`. Delete that line to remove it.
 
 The highlighted job-title line uses `--highlight` for the block behind it. The
 grain, the skyline and that block are all suppressed when printing.
