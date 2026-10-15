@@ -92,7 +92,7 @@ grain and that block are both suppressed when printing.
 
 ## The CV tab
 
-`files/Robert_Walatka_Academic_CV.pdf` is the CV itself. The tab shows a
+`files/Robert_Walatka_CV.pdf` is the CV itself. The tab shows a
 download link and an inline preview — there's no text copy of the CV to keep in
 sync.
 
