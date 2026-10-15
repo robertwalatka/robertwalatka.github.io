@@ -1,4 +1,5 @@
-# Allow every crawler everything. This file exists mainly so you have
-# somewhere to add a Sitemap: line if the site ever grows past one page.
+# Allow every crawler everything.
 User-agent: *
 Allow: /
+
+Sitemap: https://robertwalatka.github.io/sitemap.xml

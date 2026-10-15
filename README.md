@@ -124,11 +124,14 @@ The `<head>` of `index.html` carries the search metadata: title, description,
 Open Graph tags for link previews, and a block of JSON-LD structured data that
 tells search engines this page is about a *person* and which one.
 
-**Before you publish, find-and-replace `https://YOUR-SITE-URL` with your real
-address**, then uncomment the `<link rel="canonical">` line. The placeholder is
-deliberately fake rather than a guess — a canonical tag pointing at the wrong
-domain tells Google your real page is a duplicate, which can remove it from
-results altogether.
+The site is live at <https://robertwalatka.github.io/>, and the canonical,
+`og:url`, `og:image` and JSON-LD URLs all point there. If you ever move to a
+custom domain, change all five — they must match the address visitors actually
+reach. A canonical pointing elsewhere tells Google this page is a duplicate,
+which can remove it from results altogether.
+
+`sitemap.xml` lists the one page and `robots.txt` points crawlers at it. Bump
+`<lastmod>` when you make a substantive change.
 
 Two things to keep accurate if you edit them: the title under ~60 characters and
 the description under ~155, or Google truncates them. And if you change the
