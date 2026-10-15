@@ -288,6 +288,21 @@ details p {
 
 /* ----- contact ----- */
 
+/* Personal tab: label/value pairs. Wider label column than .contact because
+   "Bouldering hold" needs the room. */
+.favorites {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  gap: .4rem 1rem;
+  margin: 0;
+}
+.favorites dt {
+  color: var(--muted);
+  font-size: .9375rem;
+  padding-top: .1rem;
+}
+.favorites dd { margin: 0; }
+
 /* CV tab: the download link, then an inline preview sized like a page. */
 .cv-link { margin-bottom: 1.25rem; }
 
@@ -340,8 +355,8 @@ footer p { margin: 0; }
   .masthead { flex-direction: column; gap: 1.25rem; }
   .masthead-text { padding-right: 0; border-right: 0; }
   .bio-photo { flex: 0 0 auto; width: 9rem; }
-  .contact { grid-template-columns: 1fr; gap: 0 0; }
-  .contact dd { margin-bottom: .75rem; }
+  .contact, .favorites { grid-template-columns: 1fr; gap: 0 0; }
+  .contact dd, .favorites dd { margin-bottom: .75rem; }
 }
 
 /* ----- print (so Cmd-P gives a clean one-pager) ----- */
