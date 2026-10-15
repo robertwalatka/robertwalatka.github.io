@@ -88,7 +88,7 @@ The vertical rule between the name block and the photo is `border-right` on
 `.masthead-text`, coloured by `--bar`. Delete that line to remove it.
 
 The highlighted job-title line uses `--highlight` for the block behind it. The
-grain, the skyline and that block are all suppressed when printing.
+grain and that block are both suppressed when printing.
 
 ## Adding a paper
 
