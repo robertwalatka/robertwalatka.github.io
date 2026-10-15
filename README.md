@@ -106,6 +106,23 @@ plain link when a browser won't render PDFs inline. It's hidden below 42rem,
 where a letter-size page scaled to phone width is unreadable, and hidden when
 printing — the CV should print on its own, not nested inside the page.
 
+## Search visibility
+
+The `<head>` of `index.html` carries the search metadata: title, description,
+Open Graph tags for link previews, and a block of JSON-LD structured data that
+tells search engines this page is about a *person* and which one.
+
+**Before you publish, find-and-replace `https://YOUR-SITE-URL` with your real
+address**, then uncomment the `<link rel="canonical">` line. The placeholder is
+deliberately fake rather than a guess — a canonical tag pointing at the wrong
+domain tells Google your real page is a duplicate, which can remove it from
+results altogether.
+
+Two things to keep accurate if you edit them: the title under ~60 characters and
+the description under ~155, or Google truncates them. And if you change the
+JSON-LD, paste it into Google's Rich Results Test first — malformed JSON-LD is
+silently ignored rather than reported.
+
 ## Adding a paper
 
 Copy one whole `<li>` ... `</li>` block inside `<ol class="papers">` and edit the
