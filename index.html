@@ -109,7 +109,9 @@
     <!-- To swap this out: replace files/profile.jpg with a 4:5 portrait crop
          and update width/height to match. -->
     <img class="bio-photo" src="files/profile.jpg" alt="Robert Walatka"
-         width="600" height="750">
+         width="600" height="750"
+         data-default-src="files/profile.jpg"
+         data-personal-src="files/personal.jpg">
 
   </div>
 
@@ -265,7 +267,7 @@
     games.
   </p>
 
-  <h3>A few of my favorite things</h3>
+  <h3>These are a few of my favorite things</h3>
   <dl class="favorites">
     <dt>Bouldering hold</dt>
     <dd>Crimp</dd>
@@ -279,6 +281,8 @@
     <dt>Board game</dt>
     <dd>The Quacks of Quedlinburg</dd>
   </dl>
+
+  <p class="grew-up">Oh, and I grew up in Sacramento.</p>
 </section>
 
 </main>
@@ -320,9 +324,19 @@ var EMAIL_DOMAIN = "puvpntbobbgu.rqh";       /* ROT13 of the part after it  */
   var panels = Array.prototype.slice.call(document.querySelectorAll(".panel"));
   if (!tabs.length || !panels.length) return;
 
+  var photo = document.querySelector(".bio-photo[data-default-src]");
+
   function show(id) {
     var known = panels.some(function (p) { return p.id === id; });
     if (!known) id = panels[0].id;
+
+    // The Personal tab gets its own photo; every other tab uses the default.
+    if (photo) {
+      var want = id === "personal"
+        ? photo.getAttribute("data-personal-src")
+        : photo.getAttribute("data-default-src");
+      if (want && photo.getAttribute("src") !== want) photo.setAttribute("src", want);
+    }
 
     panels.forEach(function (p) {
       p.classList.toggle("is-active", p.id === id);
@@ -343,6 +357,12 @@ var EMAIL_DOMAIN = "puvpntbobbgu.rqh";       /* ROT13 of the part after it  */
   });
 
   syncToHash();
+
+  // Fetch the alternate photo in the background so switching tabs is instant.
+  if (photo && photo.getAttribute("data-personal-src")) {
+    var warm = new Image();
+    warm.src = photo.getAttribute("data-personal-src");
+  }
 })();
 </script>
 

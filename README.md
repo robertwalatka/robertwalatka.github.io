@@ -64,9 +64,21 @@ don't get a grey slab, and prints all four tabs.
 
 ## Adding your photo
 
-The photo lives in the masthead at the top right, in `files/profile.jpg`. To
-replace it, overwrite that file with a 4:5 portrait crop and update the `<img>`
-width/height to match.
+The masthead photo is `files/profile.jpg`. The Personal tab swaps in
+`files/personal.jpg` instead — the `<img>` carries both paths as
+`data-default-src` and `data-personal-src`, and the tab script switches between
+them. To give another tab its own photo, add a matching data attribute and a
+line in `show()`.
+
+To replace either photo, overwrite the file with a 4:5 portrait crop.
+
+Watch out for EXIF rotation: phone photos often store landscape pixels plus a
+"rotate 90" tag, so `sips` reports the wrong dimensions and crops the wrong
+axis. Pillow handles it correctly:
+
+```bash
+python3 -c "from PIL import Image, ImageOps; i=ImageOps.exif_transpose(Image.open('original.jpg')); w,h=i.size; t=int(h*0.19); i.crop((0,t,w,t+int(w*1.25))).resize((600,750), Image.LANCZOS).save('files/personal.jpg','JPEG',quality=72,optimize=True)"
+```
 
 Keep it small — a camera original is several megabytes and will make the page
 crawl. `files/profile.jpg` is 600x750 at about 67 KB. On a Mac you can crop and

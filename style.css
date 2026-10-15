@@ -303,6 +303,8 @@ details p {
 }
 .favorites dd { margin: 0; }
 
+.grew-up { margin: 1.5rem 0 0; }
+
 /* CV tab: the download link, then an inline preview sized like a page. */
 .cv-link { margin-bottom: 1.25rem; }
 
