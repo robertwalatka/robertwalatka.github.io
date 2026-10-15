@@ -142,3 +142,7 @@ silently ignored rather than reported.
 
 Copy one whole `<li>` ... `</li>` block inside `<ol class="papers">` and edit the
 copy. Drop the PDF into `files/` and point the link at `files/your-file.pdf`.
+
+Keep the `target="_blank" rel="noopener"` on the link — every link that leaves
+the page carries it, so papers open in a new tab instead of navigating away.
+Copying an existing block brings it along automatically.
