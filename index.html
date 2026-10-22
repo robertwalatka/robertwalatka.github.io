@@ -29,9 +29,9 @@
 
 <!-- Structured data: tells search engines this page is about a *person*, and
      which one, so your name query resolves to you rather than to a string
-     match. Add a "sameAs" array of your Google Scholar / LinkedIn / GitHub
-     URLs once those exist — that's the strongest signal for disambiguating
-     people with similar names. -->
+     match. The "sameAs" array lists your other profiles; add the Google
+     Scholar URL to it once that profile is public. Keeping it accurate is
+     what disambiguates you from others with the same name. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -41,6 +41,13 @@
   "familyName": "Walatka",
   "url": "https://robertwalatka.github.io/",
   "image": "https://robertwalatka.github.io/files/profile.jpg",
+  "sameAs": [
+    "https://www.chicagobooth.edu/research/roman/who-we-are/phd-students/robert-walatka",
+    "https://epic.uchicago.edu/people/robert-walatka/",
+    "https://www.linkedin.com/in/robert-w/",
+    "https://github.com/robertwalatka",
+    "https://www.researchgate.net/profile/Robert-Walatka"
+  ],
   "jobTitle": "PhD Student in Behavioral Science",
   "description": "Robert Walatka is a Behavioral Science PhD student at University of Chicago Booth, studying judgment and decision making under uncertainty.",
   "affiliation": {
@@ -276,9 +283,11 @@
     <!-- ===== Moved down from the header. Delete any you don't use. ===== -->
     <dt>Elsewhere</dt>
     <dd>
-      <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener">Google Scholar</a> &middot;
-      <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noopener">GitHub</a> &middot;
-      <a href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener">LinkedIn</a>
+      <!-- Add Google Scholar here once the profile is public:
+           <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener">Google Scholar</a> &middot; -->
+      <a href="https://www.chicagobooth.edu/research/roman/who-we-are/phd-students/robert-walatka" target="_blank" rel="noopener">Booth profile</a> &middot;
+      <a href="https://www.linkedin.com/in/robert-w/" target="_blank" rel="noopener">LinkedIn</a> &middot;
+      <a href="https://github.com/robertwalatka" target="_blank" rel="noopener">GitHub</a>
     </dd>
   </dl>
 </section>
